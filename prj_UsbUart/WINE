@@ -1,0 +1,7 @@
+
+	# LC_ALL=ru_RU.CP1251
+
+	# xterm -geometry 50X50   -e ...
+	#   -это сам терминал, а винконсоле !!!  ^_^
+
+wineconsole     ~/Downloads/Far_WINE/Far.exe   D:/KOS/my_sources/prj_UsbUart &

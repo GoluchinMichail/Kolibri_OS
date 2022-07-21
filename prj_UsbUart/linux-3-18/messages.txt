@@ -1,0 +1,42 @@
+Mar  5 20:31:16 darkstar kernel: [ 1150.441116] usbserial: USB Serial deregistering driver FmyTDI USB Serial Device
+Mar  5 20:31:16 darkstar kernel: [ 1150.441139] usbcore: deregistering interface driver ftdi_sio
+Mar  5 20:31:23 darkstar kernel: [ 1156.910181] usb 7-2.1: new full-speed USB device number 6 using uhci_hcd
+Mar  5 20:31:23 darkstar kernel: [ 1157.052268] usb 7-2.1: New USB device found, idVendor=0403, idProduct=6001
+Mar  5 20:31:23 darkstar kernel: [ 1157.052273] usb 7-2.1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+Mar  5 20:31:23 darkstar kernel: [ 1157.052275] usb 7-2.1: Product: FT232R USB UART
+Mar  5 20:31:23 darkstar kernel: [ 1157.052278] usb 7-2.1: Manufacturer: FTDI
+Mar  5 20:31:23 darkstar kernel: [ 1157.052280] usb 7-2.1: SerialNumber: AM021BEG
+Mar  5 20:31:23 darkstar mtp-probe: checking bus 7, device 6: "/sys/devices/pci0000:00/0000:00:1e.0/0000:04:01.1/usb7/7-2/7-2.1" 
+Mar  5 20:31:23 darkstar mtp-probe: bus: 7, device: 6 was not an MTP device 
+Mar  5 20:31:23 darkstar kernel: [ 1157.064573] usbcore: registered new interface driver ftdi_sio
+Mar  5 20:31:23 darkstar kernel: [ 1157.064588] usbserial: USB Serial support registered for FmyTDI USB Serial Device
+Mar  5 20:31:23 darkstar kernel: [ 1157.064686] ftdi_sio 7-2.1:1.0: FmyTDI USB Serial Device converter detected
+Mar  5 20:31:23 darkstar kernel: [ 1157.064710] usb 7-2.1: Detected FT232RL
+Mar  5 20:31:23 darkstar kernel: [ 1157.064712] usb 7-2.1: Number of endpoints 2
+Mar  5 20:31:23 darkstar kernel: [ 1157.064715] usb 7-2.1: Endpoint 1 MaxPacketSize 64
+Mar  5 20:31:23 darkstar kernel: [ 1157.064717] usb 7-2.1: Endpoint 2 MaxPacketSize 64
+Mar  5 20:31:23 darkstar kernel: [ 1157.064718] usb 7-2.1: Setting MaxPacketSize 64
+Mar  5 20:31:23 darkstar kernel: [ 1157.065268] usb 7-2.1: MY 1 = usb_control_msg ("read_latency_timer".1382, pipe= 80000680h, request= Ah, reqtype= C0h, value= 0h, index= 0h,   size= 1)
+Mar  5 20:31:23 darkstar kernel: [ 1157.065272] usb 7-2.1:     [0]= 10
+Mar  5 20:31:23 darkstar kernel: [ 1157.066235] usb 7-2.1: MY 0 = usb_control_msg ("write_latency_timer".1360, pipe= 80000600h, request= 9h, reqtype= 40h, value= 1h, index= 0h,   size= 0)
+Mar  5 20:31:23 darkstar kernel: [ 1157.066291] usb 7-2.1: FmyTDI USB Serial Device converter now attached to ttyUSB0
+
+Mar  5 20:31:37 darkstar kernel: [ 1171.609146] usb 7-2.1: MY 0 = usb_control_msg ("ftdi_open".1920, pipe= 80000600h, request= 0h, reqtype= 40h, value= 0h, index= 0h,   size= 0)
+Mar  5 20:31:37 darkstar kernel: [ 1171.610121] usb 7-2.1: MY 0 = usb_control_msg ("ftdi_set_termios".2233, pipe= 80000600h, request= 4h, reqtype= 40h, value= 8h, index= 0h,   size= 0)
+Mar  5 20:31:37 darkstar kernel: [ 1171.610125] ftdi_sio ttyUSB0: get_ftdi_divisor 1
+Mar  5 20:31:37 darkstar kernel: [ 1171.610136] ftdi_sio ttyUSB0: get_ftdi_divisor 2
+Mar  5 20:31:37 darkstar kernel: [ 1171.610137] ftdi_sio ttyUSB0: get_ftdi_divisor 3
+Mar  5 20:31:37 darkstar kernel: [ 1171.610139] ftdi_sio ttyUSB0: get_ftdi_divisor 4
+Mar  5 20:31:37 darkstar kernel: [ 1171.610141] ftdi_sio ttyUSB0: ftdi_232bm_baud_base_to_divisor (9600, 48000000)= 4138h
+Mar  5 20:31:37 darkstar kernel: [ 1171.611147] usb 7-2.1: MY 0 = usb_control_msg ("change_speed".1339, pipe= 80000600h, request= 3h, reqtype= 40h, value= 4138h, index= 0h,   size= 0)
+Mar  5 20:31:37 darkstar kernel: [ 1171.612148] usb 7-2.1: MY 0 = usb_control_msg ("update_mctrl".1155, pipe= 80000600h, request= 1h, reqtype= 40h, value= 303h, index= 0h,   size= 0)
+Mar  5 20:31:37 darkstar kernel: [ 1171.613148] usb 7-2.1: MY 0 = usb_control_msg ("ftdi_set_termios".2317, pipe= 80000600h, request= 2h, reqtype= 40h, value= 0h, index= 0h,   size= 0)
+Mar  5 20:31:37 darkstar kernel: [ 1171.614153] usb 7-2.1: MY 0 = usb_control_msg ("update_mctrl".1155, pipe= 80000600h, request= 1h, reqtype= 40h, value= 303h, index= 0h,   size= 0)
+Mar  5 20:31:37 darkstar kernel: [ 1171.614176] ftdi_sio ttyUSB0: get_ftdi_divisor 1
+Mar  5 20:31:37 darkstar kernel: [ 1171.614179] ftdi_sio ttyUSB0: get_ftdi_divisor 2
+Mar  5 20:31:37 darkstar kernel: [ 1171.614180] ftdi_sio ttyUSB0: get_ftdi_divisor 3
+Mar  5 20:31:37 darkstar kernel: [ 1171.614181] ftdi_sio ttyUSB0: get_ftdi_divisor 4
+Mar  5 20:31:37 darkstar kernel: [ 1171.614183] ftdi_sio ttyUSB0: ftdi_232bm_baud_base_to_divisor (115200, 48000000)= 1Ah
+Mar  5 20:31:37 darkstar kernel: [ 1171.615152] usb 7-2.1: MY 0 = usb_control_msg ("change_speed".1339, pipe= 80000600h, request= 3h, reqtype= 40h, value= 1Ah, index= 0h,   size= 0)
+Mar  5 20:31:37 darkstar kernel: [ 1171.616153] usb 7-2.1: MY 0 = usb_control_msg ("ftdi_set_termios".2317, pipe= 80000600h, request= 2h, reqtype= 40h, value= 0h, index= 0h,   size= 0)
+

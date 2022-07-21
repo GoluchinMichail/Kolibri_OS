@@ -1,0 +1,76 @@
+
+#  2016.12.16   msvc.2014.cmd     nmake -f Makefile_msvc -nologo -A
+
+SOURCES_OBJ_FILES_2=ddkos.obj dbg.obj serial_a.obj EAX_EBX_ECX_EDX_ret_EAX.obj
+SOURCES_OBJ_FILES_3=atol.obj prtf.obj memcpy.obj memset.obj memcmp.obj strlen.obj strcpy.obj strcat.obj
+SOURCES_OBJ_FILES=$(SOURCES_OBJ_FILES_2) $(SOURCES_OBJ_FILES_3)
+KOS_PRJ=..
+C_COMPILE_FLAGS=-WX -nologo -GS- -I.. -Irtl8188eu/include -c  -Oi- -Od -D_KOS_ -D_KOSMEM_ -D_KOSTUB_ -D_KOSBAG1_ -Zp1
+	#
+	# -GS-  РІС‹РєР»СЋС‡РёС‚СЊ РїСЂРѕРІРµСЂРєСѓ СЃРёСЃС‚РµРјС‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё (Visual Studio 2008/2013)
+	# -O1   СЃРІРµСЂРЅСѓС‚СЊ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ :))
+
+usbuart.msvc.sys:    usbuart.obj  ftdi.obj  $(SOURCES_OBJ_FILES) core_import.msvc.lib
+   link /nologo /NODEFAULTLIB  /MACHINE:X86 /SUBSYSTEM:windows  /fixed:NO /ENTRY:Public_Start /OUT:$@ $**
+#
+# "/fixed:NO"   - Base Relocation Directory e.t.c
+#
+    del core_import.msvc.lib
+    copy $@ ..\..\!run\$@
+    @echo -OK
+    @del *.obj
+
+core_import.msvc.lib:   ..\core_import.def
+    lib.exe /nologo /machine:X86 /def:$** /out:$@
+    del $*.exp
+
+.c.obj:
+    cl -nologo -GS- -I.. -c  -Oi- -Od $**
+#
+# -GS-  выключить проверку системы безопасности (Visual Studio 2008/2013)
+# -O1   свернуть пространство :))
+
+ddkos.obj : $(KOS_PRJ)/lib__kernel_api/ddkos.NASM.asm
+    nasm -I$(KOS_PRJ)/lib__kernel_api -f coff  -o $@    $**
+
+dbg.obj : $(KOS_PRJ)/lib__kernel_api/dbg.c
+    cl $(C_COMPILE_FLAGS)  $**
+
+atol.obj : $(KOS_PRJ)/lib__clib_simple/atol.c
+    cl $(C_COMPILE_FLAGS)  $**
+
+memcmp.obj : $(KOS_PRJ)/lib__clib_simple/memcmp.c
+    cl $(C_COMPILE_FLAGS)  $**
+
+strlen.obj : $(KOS_PRJ)/lib__clib_simple/strlen.c
+    cl $(C_COMPILE_FLAGS)  $**
+
+strcat.obj : $(KOS_PRJ)/lib__clib_simple/strcat.c
+    cl $(C_COMPILE_FLAGS)  $**
+
+strstr.obj : $(KOS_PRJ)/lib__clib_simple/strstr.c
+    cl $(C_COMPILE_FLAGS)  $**
+
+serial_a.obj : $(KOS_PRJ)/lib__misc/serial_a.NASM.asm
+    nasm -I$(KOS_PRJ)/lib__misc  -f coff  -o $@  $**
+
+EAX_EBX_ECX_EDX_ret_EAX.obj : $(KOS_PRJ)/lib__kos_api/EAX_EBX_ECX_EDX_ret_EAX.asm
+    nasm -I$(KOS_PRJ)/lib__kos_api  -f coff  -o $@  $**
+
+fltused.msvc.obj : fltused.msvc.asm
+    nasm -f coff  -o $@  $**
+
+prtf.obj : $(KOS_PRJ)/lib__clib_simple/prtf.c
+    cl $(C_COMPILE_FLAGS)  $**
+
+memset.obj : $(KOS_PRJ)/lib__clib_simple/memset.c
+    cl $(C_COMPILE_FLAGS)  $**
+
+memcpy.obj : $(KOS_PRJ)/lib__clib_simple/memcpy.c
+    cl $(C_COMPILE_FLAGS)  $**
+
+strcpy.obj : $(KOS_PRJ)/lib__clib_simple/strcpy.c
+    cl $(C_COMPILE_FLAGS)  $**
+
+strcat.obj : $(KOS_PRJ)/lib__clib_simple/strcat.c
+    cl $(C_COMPILE_FLAGS)  $**

@@ -1,0 +1,28 @@
+
+2016.06.02
+
+    VS 2015 Community
+
+    всё пропало, гипс снимают, клиент уезжает   :))
+
+
+    всё не так совсем безнадёжно, для сборки :
+        Свойства usbuart
+            Компоновщик
+                Дополнительно
+                    Образ имеет безопасных обработчиков: Нет (/SAFESEH:NO)
+
+
+    файлы проекта:
+
+        usbuart.sln
+        usbuart.suo
+        usbuart.vcxproj
+
+        lib__clib_simple\lib__clib_simple.sln
+        lib__clib_simple\lib__clib_simple.suo
+        lib__clib_simple\lib__clib_simple.vcxproj
+
+        lib__kernel_api\lib__kernel_api.sln
+        lib__kernel_api\lib__kernel_api.suo
+        lib__kernel_api\lib__kernel_api.vcxproj

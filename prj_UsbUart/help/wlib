@@ -1,0 +1,50 @@
+Open Watcom Library Manager Version 2.0beta1 Limited Availability
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+wlib  { <option> } <library_name> [ <commands> ]
+Where:
+  <option>    ::= -b                       (don't create .bak file)
+                | -c                       (case sensitive)
+                | -d = <object_output_directory>
+                | -l [ = <list_file_name> ]
+                | -m                       (display C++ mangled names)
+                | -n                       (always create a new library)
+                | -o = <out_library_name>
+                | -p = <record_size>       (set OMF library page size)
+                | -q                       (don't print header)
+                | -s                       (strip line number debug info)
+                | -t                       (trim THEADR pathnames)
+                | -v                       (print header)
+                | -x                       (explode all objects in library)
+                | -zld                     (strip file dependency info)
+                | -h                       (display this screen)
+                | -?                       (display this screen)
+                | -fa                      (output AR format library)
+                | -fab                     (output AR format (BSD) library)
+                | -fac                     (output AR format (COFF) library)
+                | -fag                     (output AR format (GNU) library)
+                | -fm                      (output MLIB format library)
+                | -fo                      (output OMF format library)
+                | -i<r|n><o|n>      (resident|non-resident table)(ordinal|name)
+                | -ia                      (generate AXP import records)
+                | -ii                      (generate X86 import records)
+                | -ip                      (generate PPC import records)
+                | -ie                      (generate ELF import records)
+                | -ic                      (generate COFF import records)
+                | -io                      (generate OMF import records)
+  <commands>  ::= <cmd> <commands>
+                | @<env_var> <commands>
+                | @<cmd_file> <commands>
+  <cmd_file>  ::= file which contains { <cmd> }
+  <cmd>       ::= +<object_file_name>      (add file)
+                | +<library_file_name>.lib (add library)
+                | ++<symbol_name>.<DLL_name>[.<export_name>][.<ordinal>]
+                | -<module_name>           (delete)
+                | -+<object_file_name>     (replace)
+                | +-<object_file_name>     (replace)
+                | *<module_name>[=<object_file_name>]  (extract)
+                | -*<module_name>[=<object_file_name>] (extract and delete)
+                | *-<module_name>[=<object_file_name>] (extract and delete)
+The default filename extensions are lib, bak, lst, obj and lbc.
+Enclose a file name with quotes, i.e. 'filename', if it contains '-' or '@'.

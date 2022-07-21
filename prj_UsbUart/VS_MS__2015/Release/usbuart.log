@@ -1,0 +1,6 @@
+﻿  Performing Custom Build Tools
+     ╤ючфрхЄё  сшсышюЄхър core_import.msvc.lib ш юс·хъЄ core_import.msvc.exp
+  ftdi.c
+  usbuart.c
+  Создание кода...
+  usbuart.vcxproj -> E:\KOS\my_project\prj_UsbUart\VS_MS__2015\Release\usbuart.sys

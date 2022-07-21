@@ -1,0 +1,31 @@
+<package>
+<job>
+<script language="jScript">
+
+//      запуск\"подключение к" PowerPoint
+var ObjPP = WScript.CreateObject ("PowerPoint.Application")
+
+ObjPP.Visible = true
+
+if (ObjPP.ActivePresentation.Slides.Count) {
+    var II = 0
+    for (i=1;i<ObjPP.ActivePresentation.Slides(1).Shapes.Count;i++) {
+        var Obj = ObjPP.ActivePresentation.Slides(1).Shapes(i)
+        //var Obj_2 = ObjPP.ActivePresentation.Slides(1).getShapeById (Obj.Id)
+        if (Obj.HasTextFrame) {
+            WScript.echo (Obj.Id +"___"+ Obj.Name + "___"+ Obj.TextFrame.TextRange.Text )
+        } else {
+            WScript.echo (Obj.Id +"___"+ Obj.Name + "___NULL" )
+            Obj.Line.ForeColor.RGB = 255
+            II++
+        }
+Obj.Select (false)
+WScript.Sleep (3*100)
+    }
+    WScript.echo ("II= "+ II)
+}
+//WScript.echo ("-Ok")
+
+</Script>
+</job>
+</package>

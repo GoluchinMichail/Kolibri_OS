@@ -1,0 +1,93 @@
+
+E:\KOS\my_usbcom>rem @echo off 
+
+E:\KOS\my_usbcom>c:
+
+C:\Program Files\VisualStudio\VC\crt\src>cd "\Program Files\Microsoft Visual Studio 9.0\VC" 
+
+C:\Program Files\Microsoft Visual Studio 9.0\VC>set include=C:\Program Files\VisualStudio\VC\include 
+
+C:\Program Files\Microsoft Visual Studio 9.0\VC>call vcvarsall.bat   x86 
+Setting environment for using Microsoft Visual Studio 2008 x86 tools.
+Microsoft (R) Incremental Linker Version 9.00.30729.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+ использование: LINK [параметры] [файлы] [@командный_файл]
+
+   параметры:
+
+      /ALIGN:#
+      /ALLOWBIND[:NO]
+      /ALLOWISOLATION[:NO]
+      /ASSEMBLYDEBUG[:DISABLE]
+      /ASSEMBLYLINKRESOURCE:имя файла
+      /ASSEMBLYMODULE:имя файла
+      /ASSEMBLYRESOURCE:имя файла[,[имя][,PRIVATE]]
+      /BASE:{адрес[,размер]|@имя_файла,ключ}
+      /CLRIMAGETYPE:{IJW|PURE|SAFE}
+      /CLRSUPPORTLASTERROR[:{NO|SYSTEMDLL}]
+      /CLRTHREADATTRIBUTE:{STA|MTA|NONE}
+      /CLRUNMANAGEDCODECHECK[:NO]
+      /DEBUG
+      /DEF:имя файла
+      /DEFAULTLIB:библиотека
+      /DELAY:{NOBIND|UNLOAD}
+      /DELAYLOAD:dll
+      /DELAYSIGN[:NO]
+      /DLL
+      /DRIVER[:{UPONLY|WDM}]
+      /DYNAMICBASE[:NO]
+      /ENTRY:символ
+      /ERRORREPORT:{NONE|PROMPT|QUEUE|SEND}
+      /EXPORT:символ
+      /FIXED[:NO]
+      /FORCE[:{MULTIPLE|UNRESOLVED}]
+      /FUNCTIONPADMIN[:размер]
+      /HEAP:reserve[,commit]
+      /IDLOUT:имя файла
+      /IGNOREIDL
+      /IMPLIB:имя файла
+      /INCLUDE:символ
+      /INCREMENTAL[:NO]
+      /KEYCONTAINER:имя
+      /KEYFILE:имя файла
+      /LARGEADDRESSAWARE[:NO]
+      /LIBPATH:каталог
+      /LTCG[:{NOSTATUS|PGINSTRUMENT|PGOPTIMIZE|PGUPDATE|STATUS}]
+      /MACHINE:{ARM|EBC|IA64|MIPS|MIPS16|MIPSFPU|MIPSFPU16|
+                SH4|THUMB|X64|X86}
+      /MANIFEST[:NO]
+      /MANIFESTDEPENDENCY: зависимость манифеста
+      /MANIFESTFILE:имя файла
+      /MANIFESTUAC[:{NO|фрагмент UAC}]
+      /MAP[:имя файла]
+      /MAPINFO:{EXPORTS}
+      /MERGE:с=по
+      /MIDL:@командный_файл
+      /NOASSEMBLY
+      /NODEFAULTLIB[:библиотека]
+      /NOENTRY
+      /NOLOGO
+      /NXCOMPAT[:NO]
+      /OPT:{ICF[=итерации]|NOICF|NOREF|REF}
+      /ORDER:@имя файла
+      /OUT:имя файла
+      /PDB:имя файла
+      /PDBSTRIPPED:имя файла
+      /PGD:имя файла
+      /PROFILE
+      /RELEASE
+      /SAFESEH[:NO]
+      /SECTION:имя,[[!]{DEKPRSW}][,ALIGN=#]
+      /STACK:reserve[,commit]
+      /STUB:имя файла
+      /SUBSYSTEM:{BOOT_APPLICATION|CONSOLE|EFI_APPLICATION|
+                  EFI_BOOT_SERVICE_DRIVER|EFI_ROM|EFI_RUNTIME_DRIVER|
+                  NATIVE|POSIX|WINDOWS|WINDOWSCE}[,#[.##]]
+      /SWAPRUN:{CD|NET}
+      /TLBID:#
+      /TLBOUT:имя файла
+      /TSAWARE[:NO]
+      /VERBOSE[:{ICF|LIB|REF|SAFESEH}]
+      /VERSION:#[.#]
+      /WX[:NO]
