@@ -1,0 +1,18 @@
+
+#   EmbarCadero
+#   make -f Makefile_embar -B
+
+usbuart.embar.sys:    usbuart.obj ftdi.obj
+    ilink32.exe  usbuart.obj , $@,null
+# ftdi.obj dbg.obj
+# ,..\clib_simple.embar.lib ..\kernel_api.embar.lib core_import.embar.lib
+#    bcc32.exe -tW -q -o $@ $** ..\clib_simple.embar.lib ..\kernel_api.embar.lib
+#    del core_import.embar.lib
+    @echo -OK
+
+core_import.embar.lib:   core_import.def
+    implib  -c $@ $**
+
+.c.obj:
+    bcc32 -c -I.. $**
+#-VC

@@ -1,0 +1,34 @@
+
+//  int usb_control_msg(struct usb_device *dev, unsigned int pipe,
+//      __u8 request, __u8 requesttype, __u16 value, __u16 index,
+//      void *data, __u16 size, int timeout);
+
+int my_usb_control_msg (const char *proc, int line, struct usb_device *dev, unsigned int pipe,
+    __u8 request, __u8 requesttype, __u16 value, __u16 index,
+    void *data, __u16 size, int timeout) {
+
+    int iResult;
+
+    iResult = usb_control_msg (dev, pipe,
+        request, requesttype, value, index,
+        data, size, timeout);
+
+    dev_info (&dev->dev, "MY %i = usb_control_msg (\"%s\".%i, request= %Xh, reqtype= %Xh, value= %Xh, index= %Xh,   size= %u)\n"
+        ,iResult
+        ,proc,line
+        /*dev, pipe*/
+        ,request, requesttype, value, index
+        /*data */, size/*, timeout*/
+    );
+    if (size) {
+	int i;
+	unsigned char *bytes = (unsigned char *) data;
+	for (i=0;i<size;i++) {
+	    dev_info (&dev->dev, "    [%i]= %2.2X\n", i, bytes[i]);
+	}
+    }
+    return iResult;
+}
+
+#define usb_control_msg(dev,pipe,request,requesttype,value,index,data,size,timeout) \
+    my_usb_control_msg(__func__,__LINE__,dev,pipe,request,requesttype,value,index,data,size,timeout)

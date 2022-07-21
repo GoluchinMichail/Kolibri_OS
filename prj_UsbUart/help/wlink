@@ -1,0 +1,219 @@
+Open Watcom Linker Version 2.0beta1 Limited Availability
+Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+usage: wlink {directive}
+
+commands valid for all executable formats:
+
+directive  ::= "File"        obj_spec{","obj_spec}
+            | "Name"         exe_file
+            | "OPtion"       option{","option}
+            | "Library"      library_file{","library_file}
+            | "OPTLIB"       library_file{","library_file}
+            | "Path"         path_name{";"path_name}
+            | "LIBPath"      path_name{";"path_name}
+            | "LIBFile"      obj_file{","obj_file}
+            | "Debug"        dbtype [dblist] | dblist
+            | "MODTrace"     module_name{","module_name}
+            | "SYMTrace"     symbol_name{","symbol_name}
+            | "SYStem"       system_name
+            | "SYStem Begin" system_name directive {directive} "End"
+            | "FORMat"       form
+            | "REFerence"    symbol_name{","symbol_name}
+            | "@"            directive_file
+            | "#"            comment
+press any key to continue
+
+commands valid for all executable formats (continued):
+
+            | "Alias"        alias"="symbol_name{","alias"="symbol_name}
+            | "DISAble"      msg_num{","msg_num}
+            | "SOrt"         ["GLobal"] ["ALPhabetical"]
+            | "LANGuage"     ("JApanese" | "CHinese" | "KOrean")
+            | "STARTLINK"
+            | "ENDLINK"
+            | "MODFile"      obj_file{","obj_file}
+obj_spec  ::= obj_file["("obj_member")"] | library_file["("lib_member")"]
+dbtype    ::= "Watcom" | "Dwarf" | "Codeview"
+dblist    ::= dboption{","dboption}
+dboption  ::= "LInes" | "Types" | "LOcals" | "All"
+option    ::= "ARTificial" | "[NO]CAChe" | "[NO]Caseexact" | "CVPack"
+            | "Dosseg" | "ELiminate" | "[NO]FARcalls"
+            | "INCremental[=file_name]" | "MANGlednames"
+            | "Map"["="map_file] | "MAXErrors="n | "NAMELen="n
+            | "NODefaultlibs" | "NOEXTension" | "OSName="string | "Quiet"
+            | "[NO]REDefsok" | "STack"=n | "START="symbol_name | "STATics"
+            | "SYMFile"["="symbol_file], | "[NO]Undefsok" | "Verbose"
+            | "VFRemoval"
+
+commands valid for the MS-DOS executable format only:
+
+form      ::= "Dos" ["COM"]
+directive ::= "NEWsegment"
+option    ::= "FULLHeader" | "PACKCode="n | "PACKData="n
+
+commands valid for the OS/2 and DOS/4G executable formats only:
+
+form      ::= "OS2" ["FLat"|"LE"|"LX"] ["PHYSdevice" | "VIRTdevice"
+            | ["DLl"["INITGlobal"|"INITInstance" ["TERMInstance"|"TERMGlobal"]]
+            | "PM" | "PMCompatible" | "FULLscreen"] 
+directive ::= "NEWsegment"
+            | "SEGment"     segdesc{","segdesc}
+            | "IMPort"      import{","import}
+            | "EXPort"      export{","export}
+            | "EXPort"      "="wlib_directive_file
+segdesc   ::= segspec segmodel {segmodel}
+segspec   ::= seg_name | "Class" class_name | "TYpe" ("CODE" | "DATA")
+import    ::= entryname module["."(extname | ordinal)]
+option    ::= "Alignment="n | "DEscription" description | "Heapsize="n
+            | "IMPFile"[=file_name] | "IMPLib"[=file_name]
+            | ("MANYautodata" | "NOautodata" | "ONEAutodata")
+            | "MODName="module_name | "MIXed1632" | "NEWFiles" | "OFFset="n
+            | "OLDlibrary="dll_name | "PACKCode="n | "PACKData="n | "PROTmode"
+            | "RESource="res_file_name | "STUB="stub_name | "NOSTUB"
+            | "VERSion="major.[minor]
+export    ::= entryname["."ordinal]["="internal]["RESident"]["PRIVATE"][iopl]
+segmodel  ::= ("PReload" | "LOadoncall") | ("SHared" | "NONShared")
+            | ("EXECUTEOnly" | "EXECUTERead" | "READOnly" | "READWrite")
+            | ("Iopl" | "NOIopl") | ("CONforming" | "NONConforming")
+            | ("PERManent" | "NONPERManent") | "INValid" | "RESident"
+            | "CONTiguous" | "DYNamic"
+
+
+commands valid for the Microsoft Windows executable formats only:
+
+form      ::= "WIndows" ["DLl"["INITGlobal" | "INITInstance"]] [MEMory] [FOnt]
+directive ::= "NEWsegment"
+            | "SEGment"     segdesc{","segdesc}
+            | "IMPort"      import{","import}
+            | "EXPort"      export{","export}
+            | "EXPort"      "="wlib_directive_file
+segdesc   ::= segspec segmodel {segmodel}
+segspec   ::= seg_name | "Class" class_name | "TYpe" ("CODE" | "DATA")
+import    ::= entryname module["."(extname | ordinal)]
+option    ::= "Alignment="n | "DEscription" description | "Heapsize="n
+            | "IMPFile"[=file_name] | "IMPLib"[=file_name]
+            | ("MANYautodata" | "NOautodata" | "ONEAutodata")
+            | "MODName="module_name | "OLDlibrary="dll_name | "PACKCode="n
+            | "PACKData="n | "RESource="res_file_name | "RWReloccheck"
+            | "STUB="stub_name | "NOSTUB" | "VERSion="major.[minor]
+export    ::= entryname["."ordinal]["="internal]["RESident"]["PRIVATE"]
+segmodel  ::= ("PReload" | "LOadoncall") | ("SHared" | "NONShared")
+            | ("EXECUTEOnly" | "EXECUTERead" | "READOnly" | "READWrite")
+            | ("MOVeable" | "FIXed") | "DIScardable"
+
+
+commands valid for the Microsoft Windows VxD formats only:
+
+form      ::= "WIndows VXD" ["DYNamic"]
+
+commands valid for the Microsoft Windows NT executable formats only:
+
+form      ::= "WIndows NT" ["TNT" | "RDOS"]
+              ["DLl"["INITGlobal"|"INITInstance" ["TERMInstance"|"TERMGlobal"]]
+directive ::= "RUntime"     runoption["="major["."minor]]
+            | "SEGment"     segdesc{","segdesc}
+            | "IMPort"      import{","import}
+            | "EXPort"      export{","export}
+            | "EXPort"      "="wlib_directive_file
+            | "COMmit"       commitopt{","commitopt}
+segdesc   ::= segspec segmodel {segmodel}
+segspec   ::= seg_name | "Class" class_name | "TYpe" ("CODE" | "DATA")
+import    ::= entryname module["."(extname | ordinal)]
+option    ::= "Alignment="n | "DEscription" description | "Heapsize="n
+            | "IMPFile"[=file_name] | "IMPLib"[=file_name]
+            | "MODName="module_name | "NOSTDCall" | "OBJAlign="n | "OFFset="n
+            | "OLDlibrary="dll_name | "RESource="res_file_name
+            | "STUB="stub_name | "NOSTUB" | "VERSion="major.[minor]
+export    ::= entryname["."ordinal]["="internal]["PRIVATE"]
+segmodel  ::= ("SHared" | "NONShared") | ("PAGEable" | "NONPageable")
+runoption ::= ("NATive" | "WINdows" | "CONsole" | "POSix" | "OS2" | "DOSstyle")
+commitopt ::= "STack="n | "Heap="n
+
+ 
+commands valid for the Phar Lap executable formats only:
+ 
+form      ::= "PHARlap" ["EXTended" | "REX" | "SEGmented"]
+directive ::= "RUntime"     runoption{","runoption}
+option    ::= "MAXData="n | "MINData="n | "OFFset="n | "STUB="stub_name
+runoption ::= "MINReal="n | "MAXReal="n | "CALLBufs="n | "MINIBuf="n
+            | "MAXIBuf="n | "NISTack="n | "ISTKsize="n | "PRIVileged"
+            | "REALBreak="(n | symbol_name ) | "UNPRIVileged"
+ 
+ 
+commands valid for the Novell Netware executable format only:
+ 
+form      ::= "NOVell" ["NLM" | "LAN" | "DSK" | "NAM" | 'number'] 'description'
+directive ::= "MODUle"      module_name{","module_name}
+            | "IMPort"      import{","import}
+            | "EXPort"      export{","export}
+            | "Debug"       "Novell" ["ONLyexports"] ["REFerenced"]
+option    ::= "CHeck="symbol_name | "COPYRight" [string] | "CUSTom="file_name
+            | "EXit="symbol_name | "HElp="file_name | "IMPFile="file_name
+            | "IMPLib"[=file_name] | "MESsages"[=file_name] | "MULTILoad"
+            | "NLMFlags="value | "PSeudopreemption" | "REentrant"
+            | "SCReenname" description | "SHArelib="file_name | "SYnchronize"
+            | "THReadname" name | "VERSion="major[.minor[.revision]]
+            | "XDCdata="file_name | "AUTOUNload"
+import    ::= entryname
+export    ::= entryname
+ 
+ 
+commands valid for the DOS/16M executable format only:
+ 
+form      ::= "DOS16M"
+directive ::= "MEMory"      strategy
+            | "TRansparent" seg_type
+            | "RUntime"     runoption{","runoption}
+option    ::= "BUFfer="n | "GDTsize="n | ("RELocs" | "NORelocs") | "SELstart="n
+            | "DATASize="n | "EXTended="n
+            | "STUB="stub_name
+runoption ::= "KEYboard" | "OVERload" | "INIT00" | "INITFF" | "ROTate" | "AUTO"
+            | "SELectors" | "INT10"
+strategy  ::= "TRYExtended" | "TRYLow" | "FORCEExtended" | "FORCELow"
+seg_type  ::= "STack" | "DAta"
+ 
+ 
+commands valid for the QNX executable format only:
+ 
+form      ::= "QNX" ["FLat"]
+directive ::= "SEGment"     segdesc{","segdesc}
+            | "NEWsegment"
+option    ::= "Heapsize="n | "LInearrelocs" | "LOnglived" | "NORelocs" 
+            | "OFFset="n | "PACKCode="n | "PACKData="n | "PRIVilege"=n
+            | "RESource"("="res_file_name | string)
+segdesc   ::= segspec segmodel {segmodel}
+segspec   ::= seg_name | "Class" class_name | "TYpe" ("CODE" | "DATA")
+segmodel  ::= "EXECUTEOnly" | "EXECUTERead" | "READOnly" | "READWrite"
+ 
+ 
+commands valid for the ELF executable format only:
+ 
+form      ::= "ELF" ["DLl"]
+directive ::= "MODUle"      module_name{","module_name}
+            | "IMPort"      import{","import}
+            | "EXPort"      export{","export}
+            | "RUntime"     runoption{","runoption}
+option    ::= "Alignment="n | "EXPORTAll" | "EXTRASections="n | "OBJAlign="n
+            | "OFFSet="n
+import    ::= entryname
+export    ::= entryname
+runoption ::= ("SVR4" | "LINux" | "FREebsd" | "NETbsd" | "SOLaris" | "ABIver" )
+ 
+ 
+commands valid for the ZDOS executable formats only:
+ 
+form      ::= "ZDos" ["SYS" | "HWD" | "FSD"]
+ 
+ 
+commands valid for the RDOS executable formats only:
+ 
+form      ::= "RDos" ["DEV"]
+ 
+ 
+commands valid for the RAW executable formats only:
+ 
+form      ::= "Raw" ("BIN" | "HEX")
+option    ::= "OFFset="n
+ 

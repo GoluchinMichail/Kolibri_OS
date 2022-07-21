@@ -1,0 +1,25 @@
+Turbo Incremental Link 6.11 Copyright (c) 1997-2010 Embarcadero Technologies, Inc.
+Syntax: ILINK32 objfiles, exefile, mapfile, libfiles, deffile, resfiles
+@xxxx indicates use response file xxxx
+General Options:                        -Af:nnnn Specify file alignment
+  -C       Clear state before linking   -Ao:nnnn Specify object alignment
+  -wxxx    Warning control              -ax      Specify application type
+  -Enn     Max number of errors         -b:xxxx  Specify image base addr
+  -r       Verbose linking              -Txx     Specify output file type
+  -q       Supress banner               -H:xxxx  Specify heap reserve size
+  -c       Case sensitive linking       -Hc:xxxx Specify heap commit size
+  -v       Full debug information       -S:xxxx  Specify stack reserve size
+  -Gn      No state files               -Sc:xxxx Specify stack commit size
+  -Gi      Generate import library      -Vd.d    Specify Windows version
+  -GD      Generate .DRC file           -Dstring Set image description
+Map File Control:                       -Vd.d    Specify subsystem version
+  -M       Map with mangled names       -Ud.d    Specify image user version
+  -m       Map file with publics        -GC      Specify image comment str
+  -s       Detailed segment map         -GF      Set image flags
+  -x       No map                       -Gl      Static package
+Paths:                                  -Gpd     Design time only package
+  -I       Intermediate output dir      -Gpr     Runtime only package
+  -L       Specify library search paths -GS      Set section flags
+  -j       Specify object search paths  -Gt      Fast TLS
+Image Control:                          -Gz      Do image checksum
+  -d       Delay load a .DLL            -Rr      Replace resources

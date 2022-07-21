@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "usbuart", "usbuart.vcxproj", "{CDCC1A00-B02B-4E32-AD52-B8B171532896}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib__kernel_api", "lib__kernel_api\lib__kernel_api.vcxproj", "{A1185A3B-1776-4257-9F49-1650A9F8CE62}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib__clib_simple", "lib__clib_simple\lib__clib_simple.vcxproj", "{65C5CB9D-265C-4656-87EC-623304A82076}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		Description = ppp-shell
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDCC1A00-B02B-4E32-AD52-B8B171532896}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CDCC1A00-B02B-4E32-AD52-B8B171532896}.Debug|Win32.Build.0 = Debug|Win32
+		{CDCC1A00-B02B-4E32-AD52-B8B171532896}.Release|Win32.ActiveCfg = Release|Win32
+		{CDCC1A00-B02B-4E32-AD52-B8B171532896}.Release|Win32.Build.0 = Release|Win32
+		{A1185A3B-1776-4257-9F49-1650A9F8CE62}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A1185A3B-1776-4257-9F49-1650A9F8CE62}.Debug|Win32.Build.0 = Debug|Win32
+		{A1185A3B-1776-4257-9F49-1650A9F8CE62}.Release|Win32.ActiveCfg = Release|Win32
+		{A1185A3B-1776-4257-9F49-1650A9F8CE62}.Release|Win32.Build.0 = Release|Win32
+		{65C5CB9D-265C-4656-87EC-623304A82076}.Debug|Win32.ActiveCfg = Debug|Win32
+		{65C5CB9D-265C-4656-87EC-623304A82076}.Debug|Win32.Build.0 = Debug|Win32
+		{65C5CB9D-265C-4656-87EC-623304A82076}.Release|Win32.ActiveCfg = Release|Win32
+		{65C5CB9D-265C-4656-87EC-623304A82076}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
